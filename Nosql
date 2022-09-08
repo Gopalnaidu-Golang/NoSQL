@@ -1,0 +1,100 @@
+NO SQL
+Transaction management used dbms
+Storing and quick processing using big data
+Polyglot persistence
+ETL extract transform load informatica
+Data storage formats:structured and unstructured data.
+Consumer data in oracle
+CRM customer relation data in mysql
+Xml :
+json : is social data
+Flat file : customer care logs call record
+
+DW DATA WARE HOUSE also called OLAP
+BI tool. Tablu 
+
+Diffrent formated data in different places ETL collects and transform then place or dump into Data ware house. From there BI tool
+Drawbacks:
+ETL has limitation to pull data to collect unstructured data
+
+MPP massive parallel processing
+MAP REDUCE: default programming analytics java.
+Spark uses as similar map reduce.
+HIVE is DW for Hadoop open source apache, cloudera
+
+Architecture:HADOOP install in all machines associated as cloud
+Master and slave while install Hadoop in 4 machines 1 master 3 slaves
+Resizing or add or  remove more machines scaling out.storage problem solved
+Called as Hadoop cluster each node 100terabyte
+Master called as name node slave called data node
+Commodity hardware: assembled server.
+Connection: How to connect hadoop cluster or node or gateway machine[indirct connect]
+Hadoop versions:
+HDFS:hadoop distributed file system:storage manager doesn’t care format to store, once store u can’t edit or modify but appending possible to file system and stores sequencing
+Aggregate query 
+Seek time: fetch to find data time
+
+Name node or master node stores metadata tells wr stores block data int o data nodes, recover data when crash using cluster mechanism bz replica of block and stores in each node.
+Dist copy:
+
+YARN: resources manager 
+MAPREDUCE: processing using programme. Java or python.
+
+Block size for this cluster 64MB max size of data to store
+Devide and distribute: b1,b2,b3 stores in different data nodes.
+Hadoop default block size 128mb
+Dfs.block to chk block size
+Rack awareness:
+Baremetel and virtual machine
+
+Sequence file:
+Batch jobs to analyse data using ojhi
+Queue allocate resource and follow policy
+
+ELT: HDFS operation
+Sqoop: bring data from sql data from the machines and send to HDFS to store.
+FLUME: used for unstructured data to bring point to point delivery pulled very fast
+Send to Kafka send one copy tpHDFS also other copy send to spark streaming
+KAFKA: runs on its own cloud and stores data and give to access to anybody
+Spark: spark streaming to analyse
+ELK or plum
+From HDFS to batch processing using map reduce or hive
+HIVE and spark connection
+In memory query IMPALA runs data will lose no reliability
+
+CDC:change data capture log file
+
+MAP REDUCE prog : output is key value pair.counting the occurrence of word
+Key is word value is count data Morethan 100 mb it will push in hard disk not in ram.
+Fault tolerance using replica we recover.
+Morethan 100 mb it will push in hard disk
+Shuffle and sort: after output give MR then shuffle and sort u r keys.
+Then will go to reducer for final output
+One reduce or multiple reducer based on hash partition
+Diff bw spark and MR:
+Spark don’t push into hard disk.
+
+Command to access hdfs sys: hdfs dfs -ls
+ create folder in hadoop:Hdfs dfs -mkdir dell
+Create a file: *.txt 
+Transfer file: hdfs dfs -put *.txt dell 
+To show content of file:  Hdfs dfs -cat dell/*.txt
+Tells stored u r file system in the hadoop location: Hadoop fsck /user/gnaidu2/dell/*.txt -files -blocks -location 
+Download file from hdfs: hdfs dfs -get path of jar file to run jar in local machine.
+Create text file:
+FTP commands are using in hadoop to transfer repo or file in a distributed sys.
+FTP command to transfer directory 
+ Hadoop client connect using node ip
+How do u know block has incomplete data
+Input split in MR or custom input split
+
+YARN use in HADOOP:
+Yarn jar word count.jar dell/*.txt[input file wr having data] folder-name [to store  output]
+YARN resourse management activity: jar or app launch in any one node in a cluster then contact to name node to chk metadata to find where stored input data then app running node contact corresponding nodes and creates  jvm or container to run app and to map and reduce data finally creates output then stores in specified directory once done all operations then deletes Jim’s and app also. So called yarn is dynamic resource management.
+
+Q. To run jar or .py or exe in hadoop where I need to install java or python or Golang.
+Hdfs dfs -getmerge outputrepo/* result.txt to merge all replicated output.
+
+Admin:add or remove service or cluster or node give permissions
+
+Mongoldb,cassanra,dynamodb,zookeeper ,Kafka
